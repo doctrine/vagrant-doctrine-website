@@ -10,9 +10,6 @@ apt-get update
 apt-get install -y openjdk-6-jre
 apt-get install -y openjdk-7-jdk
 apt-get install -y php5 php5-curl
-apt-get install -y nodejs
-apt-get install -y node-less
-apt-get install -y npm
 apt-get install -y vim
 apt-get install -y curl
 apt-get install -y git
@@ -27,18 +24,19 @@ apt-get install -y ansible
 
 pip install pyyaml
 pip install tinkerer
+pip install cssselect
+pip install lxml
 
-npm install less
+rm -rf /var/www
+ln -s /vagrant/data/doctrine-website-sphinx/site/blog/html /var/www
 
-mkdir /home/vagrant/data
-cd /home/vagrant/data
+if [ ! -d "/vagrant/data" ]; then
+    mkdir /vagrant/data
+fi
+
+cd /vagrant/data
 git clone git@github.com:doctrine/doctrine-sphinx-theme.git
 git clone git@github.com:doctrine/doctrine-website-sphinx.git
-git submodule init
-git submodule sync
-git submodule update
-mkdir pages
-mkdir site/_static
 ./bin/generate-github-token.sh
 ant install-sphinx
 ant build
