@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+apt-get install -y software-properties-common
+apt-get install -y python-software-properties
+
+apt-add-repository ppa:ansible/ansible
+
 apt-get update
 
 apt-get install -y openjdk-6-jre
@@ -18,6 +23,7 @@ apt-get install -y python
 apt-get install -y python-dev
 apt-get install -y python-pip
 apt-get install -y make
+apt-get install -y ansible
 
 pip install pyyaml
 pip install tinkerer
@@ -26,6 +32,7 @@ npm install less
 
 mkdir /home/vagrant/data
 cd /home/vagrant/data
+git clone git@github.com:doctrine/doctrine-sphinx-theme.git
 git clone git@github.com:doctrine/doctrine-website-sphinx.git
 git submodule init
 git submodule sync
