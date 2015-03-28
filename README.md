@@ -1,4 +1,4 @@
-# Doctrine Develop VM
+# Doctrine Website Develop VM
 
 Clone the repository:
 
